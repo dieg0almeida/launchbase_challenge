@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css?family=Kulim+Park|Roboto&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 32px auto 32px auto;
+}
+
+.container p {
+    font-size: 18px;
+    line-height: 28px;
+}
+
+/* === INDEX === */
+.menu img{
+    margin-right: 150px;
+}
+
+.menu a{
+    font-size: 16px;
+    line-height: 26px;
+    border-radius: 20px;
+    text-decoration: none;
+    padding: 8px;
+    color: #111111;
+}
+
+.wrapper {
+    background-color: #fbdfdb;
+    border-radius: 30px;
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.wrapper h2{
+    font-size: 32px;
+    line-height: 42px;
+}
+.wrapper-content {
+    margin: auto 32px auto 32px;
+}
+
+.wrapper p {
+    font-size: 18px;
+    line-height: 28px;
+    max-width: 300px;
+}
+
+.wrapper img {
+    padding: 60px 0px 0px 0px;
+}
+
+.subtitle {
+    margin-top: 32px;
+    margin-left: 8px;
+    font-size: 24px;
+    line-height: 34px;
+    font-weight: bold;
+}
+
+.cards {
+    max-width: 1000px;
+    margin: 32px auto 32px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.card {
+    position: relative;
+    cursor: pointer;
+}
+
+.card__image img {
+    animation: fadeIn 3s;
+    width: 100%;
+    border-radius: 15px;
+}
+
+@keyframes fadeIn{
+    from {
+        opacity: 0;
+    }
+
+    to{
+        opacity: 1;
+    }
+}
+
+.card__title {
+    margin-left: 8px;
+    margin-top: 8px;
+    font-size: 18px;
+    line-height: 28px;
+}
+
+.card__author {
+    margin-left: 8px;
+    margin-top: 2px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #777777;
+}
+
+
+footer {
+    margin-top: auto;
+    text-align: center;
+    background-color: #eeeeee;
+    padding: 16px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #999999;
+}
+
+/* === ABOUT === */
+
+.about-title {
+    margin-top: 32px;
+    margin-bottom: 16px;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 34px;
+}
+
+.about-subtitle {
+    margin-bottom: 16px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/*=== RECIPE ===*/
+
+.recipe__header{
+    text-align: center;
+}
+
+.recipe__header img{
+    animation: fadeIn 3s;
+    border-radius: 15px;
+    width: 100%;
+    margin: 32px auto;
+}
+
+.recipe__header h1 {
+    font-size: 36px;
+    line-height: 46px;
+
+}
+
+.recipe__header h3 {
+    font-size: 20px;
+    color: #777777;
+    line-height: 30px;
+    margin-top: 8px;
+}
+
+.recipe__content__ingredients {
+    margin-top: 32px;
+}
+
+.recipe__content__ingredients h2{
+    font-size: 24px;
+    line-height: 34px;
+    display: inline;
+}
+.recipe__content__ingredients h4{
+    font-size: 12px;
+    color: #999999;
+    line-height: 22px;
+    display: inline;
+    font-weight: bold;
+}
+
+.recipe__content__ingredients h4:hover{
+    cursor: pointer;
+}
+
+
+.recipe__content__ingredients ul{
+    margin-top: 8px;
+    margin-left: 16px;
+    font-size: 18px;
+    line-height: 28px;
+    visibility: hidden;
+    display: none;
+}
+
+.recipe__content__ingredients.active ul{
+    animation: fadeIn 1s;
+    visibility: visible;
+    display: block;
+}
+
+.recipe__content__preparation {
+    margin-top: 32px;
+}
+
+.recipe__content__preparation h2{
+    font-size: 24px;
+    line-height: 34px;
+    display: inline;
+}
+
+.recipe__content__preparation h4{
+    font-size: 12px;
+    color: #999999;
+    line-height: 22px;
+    display: inline;
+    font-weight: bold;
+}
+
+.recipe__content__preparation h4:hover{
+    cursor: pointer;
+}
+
+.recipe__content__preparation ul{
+    margin-top: 8px;
+    margin-left: 16px;
+    font-size: 18px;
+    line-height: 28px;
+    visibility: hidden;
+    display: none;
+}
+
+.recipe__content__preparation.active ul{
+    animation: fadeIn 1s;
+    visibility: visible;
+    display: block;
+}
+
+.recipe__content__info {
+    margin-top: 32px;
+}
+
+.recipe__content__info h2{
+    font-size: 24px;
+    line-height: 34px;
+    display: inline;
+}
+
+.recipe__content__info h4{
+    font-size: 12px;
+    color: #999999;
+    line-height: 22px;
+    display: inline;
+    font-weight: bold;
+}
+
+.recipe__content__info h4:hover{
+    cursor: pointer;
+}
+
+.recipe__content__info p{
+    margin-top: 8px;
+    font-size: 18px;
+    line-height: 28px;
+    visibility: hidden;
+    display: none;
+}
+
+.recipe__content__info.active p{
+    animation: fadeIn 1s;
+    visibility: visible;
+    display: block;
+}
+
+
+

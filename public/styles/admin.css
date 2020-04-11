@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css?family=Kulim+Park|Roboto&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: black;
+    height: 80px;
+    width: 100%;
+}
+
+header .container-header{
+    position: relative;
+    width: 80%;
+    height: 100%;
+    margin: 32px auto;
+}
+
+header .container-header img{
+    margin-right: 64px;
+}
+
+
+header .container-header a{
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 25px;
+    margin-right: 16px;
+    color: #999999;
+    text-decoration: none;
+}
+
+
+.container-form, .container{
+    width: 80%;
+    margin: auto auto;
+}
+
+.container-form .header,
+.container .header{
+    margin-top: 64px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-form .edit-form{
+    margin-top: 64px;
+}
+
+/* .container h1{
+    margin-top: 64px;
+} */
+
+.button{
+    background-color: #6558c3;
+    color: white;
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: 26px;
+    padding: 8px 16px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.edit-button{
+    position: absolute;
+    top: 20%;
+    right: 8%;
+}
+
+.delete-button{
+    background-color: #eee;
+    color: white;
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: 26px;
+    padding: 8px 16px;
+    text-align: center;
+    cursor: pointer;
+
+    position: absolute;
+    right: 19%;
+    top: 20%;
+}
+
+.delete-button:hover{
+    transition: 200ms;
+    background-color: #DC4747;
+}
+
+.container-form form .header h1{
+    font-size: 24px;
+    line-height: 34px;
+    font-weight: bold;
+}
+
+.container-form .fields .item h3{
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: bold;
+    margin-top: 24px;
+}
+
+.container-form .fields .item input,
+.container-form .fields .item textarea{
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    width: 100%;
+    font-size: 16px;
+    margin-top: 4px;
+    padding: 8px 8px;
+}
+
+.container-form .fields .item textarea{
+    resize: none;
+    min-height: 150px;
+    margin-bottom: 24px;
+}
+
+.container-form .fields .add-button{
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: bold;
+    color: #6558C3;
+    cursor: pointer;
+    margin-top: 4px;
+}
+
+.container .header a{
+    text-decoration: none;
+}
+
+.recipe__header{
+    text-align: center;
+}
+
+@keyframes fadeIn{
+    from {
+        opacity: 0;
+    }
+
+    to{
+        opacity: 1;
+    }
+}
+
+.recipe__header img{
+    animation: fadeIn 3s;
+    border-radius: 15px;
+    width: 940px;
+    height: 280px;
+    margin: 32px auto;
+    object-fit: fill;
+}
+
+.recipe__header h1 {
+    font-size: 36px;
+    line-height: 46px;
+
+}
+
+.recipe__header h3 {
+    font-size: 20px;
+    color: #777777;
+    line-height: 30px;
+    margin-top: 8px;
+}
+
+.recipe__content__ingredients,
+.recipe__content__preparation,
+.recipe__content__info{
+    margin-top: 32px;
+}
+
+.recipe__content__ingredients h2,
+.recipe__content__preparation h2,
+.recipe__content__info h2{
+    font-size: 24px;
+    line-height: 34px;
+    display: inline;
+}
+
+.recipe__content__ingredients ul,
+.recipe__content__preparation ul{
+    margin-top: 8px;
+    margin-left: 16px;
+    font-size: 18px;
+    line-height: 28px;
+    animation: fadeIn 1s;
+}
+
+.recipe__content__info p{
+    margin-top: 8px;
+    margin-bottom: 24px;
+    font-size: 18px;
+    line-height: 28px;
+    animation: fadeIn 1s;
+}
+
+.cards {
+    margin: 32px auto 32px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.card {
+    position: relative;
+    display: flex;
+}
+
+.card .image img {
+    animation: fadeIn 3s;
+    width: 172px;
+    height: 80px;
+    border-radius: 8px;
+    margin-right: 16px;
+}
+
+.card .info h3{
+    font-size: 18px;
+    line-height: 28px;
+
+}
+
+.card .info h5{
+    font-size: 14px;
+    line-height: 26px;
+    color: #777777;
+    margin-top: 2px;
+}
+
+.card .info h6{
+    font-size: 14px;
+    line-height: 24px;
+    margin-top: 8px;
+}
+
+.card .info h6 a{
+    text-decoration: none;
+    color: #6558c3;
+}
+
