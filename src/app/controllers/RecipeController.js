@@ -1,25 +1,23 @@
 const Recipe = require('../models/Recipe');
+const Chef = require('../models/Chef');
 
-//validar campos vazios
-//retornar mensagem de erro para o front
-//CSS da mensagem de erro
 
 module.exports = {
     async index(req, res){
         const results = await Recipe.all();
         const recipes = results.rows;
-
         return res.render('admin/recipes/index', {recipes});
     },
-    create(req, res){
-        return res.render('admin/recipes/create');
+    async create(req, res){
+        const results = await Chef.all();
+        const chefs = results.rows;
+        return res.render('admin/recipes/create', { chefs });
     },
     async post(req, res){
         const keys = Object.keys(req.body);
 
         for (key of keys) {
             if (req.body[key] == "") {
-                console.log("dsadd");
                 return res.render('admin/recipes/create', {
                     recipe: req.body,
                     error: 'Preencha todos os campos!'
@@ -29,10 +27,10 @@ module.exports = {
 
         const results = await Recipe.create(req.body);
 
-        return res.redirect(`/admin/recipes/${results.rows[0].id}/edit`);
+        return res.redirect(`/admin/recipes`);
     },
     async edit(req, res){
-        const results = await Recipe.findById(req.params.id);
+        let results = await Recipe.findById(req.params.id);
 
         if(!results.rows.length > 0){
             return res.render('admin/recipes/create', {
@@ -41,7 +39,9 @@ module.exports = {
         }
 
         const recipe = results.rows[0];
-        return res.render('admin/recipes/edit', { recipe });
+        results = await Chef.all();
+        const chefs = results.rows;
+        return res.render('admin/recipes/edit', { recipe, chefs });
     },
     async put(req, res){
         const keys = Object.keys(req.body);
@@ -55,11 +55,9 @@ module.exports = {
             }
         }
 
-        console.log(req.body);
-
         await Recipe.update(req.body);
 
-        return res.redirect(`/admin/recipes/${req.body.id}`)
+        return res.redirect(`/admin/recipes`)
     },
     async show(req, res){
         const results = await Recipe.findById(req.params.id);

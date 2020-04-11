@@ -1,6 +1,9 @@
 const db = require('../../config/db');
 
 module.exports = {
+    all(){
+        return db.query('SELECT * FROM chefs');
+    },
     create(chef){
         const query = `INSERT INTO chefs
         (
@@ -23,6 +26,9 @@ module.exports = {
     findById(chef_id){
         return db.query(`SELECT * FROM chefs WHERE id = ${chef_id}`);
     },
+    chefsRecipes(chef_id){
+        return db.query(`SELECT * FROM recipes WHERE chef_id = ${chef_id}`);
+    },
     update(chef){
         const query = `UPDATE chefs SET
         name = $1,
@@ -36,5 +42,8 @@ module.exports = {
         ];
 
         return db.query(query, values);
+    },
+    destroy(chef_id){
+        return db.query(`DELETE FROM chefs WHERE id = ${chef_id}`);
     }
 }

@@ -2,7 +2,10 @@ const db = require('../../config/db');
 
 module.exports = {
     all(){
-        return db.query('SELECT * FROM recipes');
+        return db.query(
+            `SELECT recipes.*, chefs.name AS chef_name 
+            FROM recipes JOIN chefs 
+            ON (chefs.id = recipes.chef_id)`);
     },
     create(recipe) {
         const query = `INSERT INTO recipes 
@@ -35,7 +38,10 @@ module.exports = {
         return db.query(query, values);
     },
     findById(id){
-        return db.query(`SELECT * FROM recipes WHERE id = ${id}`);
+        return db.query(`SELECT recipes.*, chefs.name AS chef_name 
+        FROM recipes JOIN chefs 
+        ON (recipes.chef_id = chefs.id) 
+        WHERE recipes.id = ${id}`);
     },
     update(recipe){
 
@@ -50,7 +56,7 @@ module.exports = {
 
         const values = [
             recipe.title,
-            1,
+            recipe.chef_id,
             recipe.image,
             recipe.ingredients,
             recipe.preparation,

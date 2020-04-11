@@ -1,4 +1,12 @@
 const cards = document.querySelectorAll('.card');
+const currentPage = location.pathname;
+const menuitems = document.querySelectorAll('header .container-header a');
+
+for(let item of menuitems){
+    if(currentPage.includes(item.getAttribute('href'))){
+        item.classList.add('active');
+    }
+}
 
 for (let card of cards) {
     card.addEventListener('click', function () {
@@ -31,10 +39,14 @@ function addStep() {
     steps.appendChild(newField);
 }
 
-document
+if(document.querySelector(".add-ingredient")){
+    document
     .querySelector(".add-ingredient")
     .addEventListener("click", addIngredient);
+}
 
-document
+if(document.querySelector(".add-step")){
+    document
     .querySelector(".add-step")
     .addEventListener("click", addStep);
+}

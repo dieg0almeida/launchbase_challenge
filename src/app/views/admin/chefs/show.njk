@@ -3,8 +3,16 @@
 {% block content %}
     <div class="container">
         <div class="header">
-          <h1>Gerenciar receitas</h1>
+            <h1>Chef:
+                {{chef.name}}</h1>
+            <a href="/admin/chefs/{{chef.id}}/edit" class="button">Editar Chef</a>
         </div>
+        <div id="chef__wrapper">
+            <img src="{{chef.avatar_url}}" alt="{{chef.name}}">
+            <h1>{{chef.name}}</h1>
+            <h2>{{recipes.length}} Receita(s)</h2>
+        </div>
+        <h1>Receitas</h1>
         <div class="cards">
             {% for recipe in recipes %}
                 <div class="card">
@@ -13,7 +21,7 @@
                     </div>
                     <div class="info">
                         <h3>{{recipe.title}}</h3>
-                        <h5>por {{recipe.chef_name}}</h5>
+                        <h5>por {{chef.name}}</h5>
                         <h6>
                             <a href="/admin/recipes/{{recipe.id}}">Visualizar</a>
                         </h6>

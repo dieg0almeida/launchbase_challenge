@@ -33,13 +33,13 @@ routes.post("/admin/recipes", RecipeController.post);
 routes.put("/admin/recipes", RecipeController.put);
 routes.delete("/admin/recipes", RecipeController.delete);
 
-// routes.get("/admin/chefs", ChefController.index);
+routes.get("/admin/chefs", ChefController.index);
 routes.get("/admin/chefs/create", ChefController.create);
-// routes.get("/admin/chefs/:id", ChefController.show);
+routes.get("/admin/chefs/:id", ChefController.show);
 routes.get("/admin/chefs/:id/edit", ChefController.edit);
 
 routes.post("/admin/chefs", ChefController.post);
 routes.put("/admin/chefs", ChefController.put);
-// routes.delete("/admin/chefs", ChefController.delete);
+routes.delete("/admin/chefs", ChefController.delete);
 
 module.exports = routes;
