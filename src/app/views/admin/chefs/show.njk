@@ -10,7 +10,13 @@
         <div id="chef__wrapper">
             <img src="{{chef.avatar_url}}" alt="{{chef.name}}">
             <h1>{{chef.name}}</h1>
-            <h2>{{recipes.length}} Receita(s)</h2>
+            <h2>{{recipes.length}}
+              {% if recipes.length > 1 %}
+                receitas
+              {% else %}
+                receita
+              {% endif %}
+            </h2>
         </div>
         <h1>Receitas</h1>
         <div class="cards">

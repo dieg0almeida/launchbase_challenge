@@ -3,7 +3,7 @@ const nunjucks = require('nunjucks');
 var methodOverride = require('method-override');
 const bodyParser = require('body-parser');
 const server = express();
-const routes = require('./routes');
+const routes = require('./routes/index');
 
 server.set('view engine', 'njk');
 server.use(bodyParser.json());

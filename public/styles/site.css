@@ -24,8 +24,9 @@ body {
 }
 
 /* === INDEX === */
-.menu img{
-    margin-right: 150px;
+.menu{
+    display: grid;
+    grid-template-columns: 240px 1fr 340px;
 }
 
 .menu a{
@@ -35,6 +36,30 @@ body {
     text-decoration: none;
     padding: 8px;
     color: #111111;
+}
+
+.menu a.active{
+   font-weight: bold;
+}
+
+.button{
+    background-color: #6558c3;
+    color: white;
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: 26px;
+    padding: 8px 16px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.menu .search form input{
+    width: 70%;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 24px;
+    padding: 8px;
 }
 
 .wrapper {
@@ -86,7 +111,8 @@ body {
 
 .card__image img {
     animation: fadeIn 3s;
-    width: 100%;
+    width: 300px;
+    height: 140px;
     border-radius: 15px;
 }
 
@@ -280,3 +306,38 @@ footer {
 
 
 
+/*=== CHEFS ===*/
+
+.chef__cards{
+    margin: 32px auto 32px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 16px;
+}
+
+.chef__card{
+    position: relative;
+    display: flex;
+}
+
+.chef__card .chef__info{
+    margin-left: 16px;
+}
+
+.chef__card img{
+    animation: fadeIn 1s;
+    border-radius: 50%;
+    height: 64px;
+    width: 64px;
+}
+
+.chef__card h3{
+    font-size: 18px;
+    line-height: 28px;
+}
+
+.chef__card h6{
+    font-size: 14px;
+    line-height: 24px;
+    color: #666666;
+}

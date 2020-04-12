@@ -2,7 +2,10 @@ const db = require('../../config/db');
 
 module.exports = {
     all(){
-        return db.query('SELECT * FROM chefs');
+        return db.query(`SELECT chefs.*, count(recipes.id) as recipes_count 
+        FROM chefs JOIN recipes 
+        ON (chefs.id = recipes.chef_id)
+        GROUP BY chefs.id`);
     },
     create(chef){
         const query = `INSERT INTO chefs

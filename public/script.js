@@ -1,8 +1,15 @@
 const cards = document.querySelectorAll('.card');
 const currentPage = location.pathname;
-const menuitems = document.querySelectorAll('header .container-header a');
+const menuitemsadm = document.querySelectorAll('header .container-header a');
+const menuitemssite = document.querySelectorAll('.menu a');
 
-for(let item of menuitems){
+for(let item of menuitemsadm){
+    if(currentPage.includes(item.getAttribute('href'))){
+        item.classList.add('active');
+    }
+}
+
+for(let item of menuitemssite){
     if(currentPage.includes(item.getAttribute('href'))){
         item.classList.add('active');
     }

@@ -1,32 +1,42 @@
 <html>
 
-<head>
-    <title>Foodfy</title>
-    <link rel="stylesheet" href="/styles/site.css">
-</head>
+    <head>
+        <title>Foodfy</title>
+        <link rel="stylesheet" href="/styles/site.css">
+    </head>
 
-<body>
-    <div class="container">
-        <header>
-            <div class="menu">
-                <a href="/">
-                    <img src="/assets/logo.png" alt="Foodfy">
-                </a>
-                <a href="/about">Sobre</a>
-                <a href="/recipes">Receitas</a>
-            </div>
-        </header>
-        {% block content %}
-        {% endblock content %}
-    </div>
-    <footer>
-        Todos direitos reservados, receitas Foodfy.
-    </footer>
+    <body>
+        <div class="container">
+            <header>
+                <div class="menu">
+                    <div class="logo">
+                        <a href="/">
+                            <img src="/assets/logo.png" alt="Foodfy">
+                        </a>
+                    </div>
+                    <div class="links">
+                        <a href="/about">Sobre</a>
+                        <a href="/recipes">Receitas</a>
+                        <a href="/chefs">Chefs</a>
+                    </div>
+                    <div class="search">
+                        <form action="/recipes" method="POST">
+                            <input type="text" placeholder="Buscar uma receita" name="search">
+                            <button type="Submit" class="button">Buscar</button>
+                        </form>
+                    </div>
+                </div>
+            </header>
+            {% block content %}{% endblock content %}
+        </div>
+        <footer>
+            Todos direitos reservados, receitas Foodfy.
+        </footer>
 
-    {% block script %}
-        <script src="script.js"></script>
-    {% endblock script %}
+        {% block script %}
+            <script src="script.js"></script>
+        {% endblock script %}
 
-</body>
+    </body>
 
 </html>

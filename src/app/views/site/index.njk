@@ -12,17 +12,15 @@
         Mais Acessadas
     </div>
     <section class="cards">
-        {% for item in items %}
-            {% if item.featured %}
-                <div class="card" id="{{loop.index0}}">
+        {% for recipe in recipes %}
+                <div class="card" id="{{recipe.id}}">
                     <div class="card__image">
-                        <img src="{{item.image}}" alt="{{item.title}}">
+                        <img src="{{recipe.image}}" alt="{{recipe.title}}">
                     </div>
-                    <div class="card__title">{{item.title}}</div>
+                    <div class="card__title">{{recipe.title}}</div>
                     <div class="card__author">por
-                        {{item.author}}</div>
+                        {{recipe.chef_name}}</div>
                 </div>
-            {% endif %}
         {% endfor %}
     </section>
 

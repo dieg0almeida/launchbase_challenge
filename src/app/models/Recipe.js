@@ -68,5 +68,13 @@ module.exports = {
     },
     destroy(recipe_id){
         return db.query(`DELETE FROM recipes WHERE id = ${recipe_id}`);
+    },
+    findBy(search){
+        return db.query(`
+          SELECT recipes.*, chefs.name AS chef_name 
+          FROM recipes JOIN chefs
+          ON (chefs.id = recipes.chef_id)
+          WHERE recipes.title ILIKE '%${search}%'`
+        );
     }
 }
