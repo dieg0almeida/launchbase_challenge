@@ -1,8 +1,10 @@
+DROP DATABASE foodfy;
+CREATE DATABASE foodfy;
+
 CREATE TABLE "recipes" (
   id SERIAL PRIMARY KEY,
   title text,
   chef_id int,
-  image text,
   ingredients text[],
   preparation text [],
   information text,
@@ -13,9 +15,21 @@ CREATE TABLE "recipes" (
 CREATE TABLE "chefs" (
   id SERIAL PRIMARY KEY,
   name text,
-  avatar_url text,
+  file_id INTEGER REFERENCES files(id),
   created_at timestamp DEFAULT (now()),
   updated_at timestamp DEFAULT (now())
+);
+
+CREATE TABLE files(
+  id SERIAL PRIMARY KEY,
+  name TEXT,
+  path TEXT NOT NULL
+);
+
+CREATE TABLE recipe_files(
+  id SERIAL PRIMARY KEY,
+  recipe_id INTEGER REFERENCES recipes(id) ON DELETE CASCADE,
+  file_id INTEGER REFERENCES files(id) ON DELETE CASCADE
 );
 
 CREATE FUNCTION trigger_set_timestamp()

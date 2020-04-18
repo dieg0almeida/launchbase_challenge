@@ -3,16 +3,27 @@
   <input 
     type="text"
     name="name"
-    placeholder="Url da imagem. Ex: http://myimage.com..."
     value="{{chef.name}}"
     >
 </div>
 
 <div class="item">
   <h3> Avatar </h3>
-  <input 
+  {% if chef.id %}
+    <input 
     type="text"
-    name="avatar_url"
-    value="{{chef.avatar_url}}"
+    id="avatar_path"
+    name="avatar_path"
+    value="{{chef.avatar}}"
     >
+  {% endif %}
+  <div class="avatar">
+    <label for="avatar"class="button">Enviar Avatar</label>
+    <input 
+      type="file"
+      name="avatar"
+      id="avatar"
+      style="display:none"
+    >
+  </div>
 </div>

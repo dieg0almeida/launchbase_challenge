@@ -2,15 +2,16 @@
 <html>
 <head>
     <title>Foody - Admin</title>
-    <link rel="stylesheet" href="/styles/admin.css">
+    <link rel="stylesheet" href="/styles/session.css">
     <link rel="stylesheet" href="/styles/messages.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
    {% include 'admin/parts/message.njk'%}
 
-   {% include 'admin/parts/header.njk'%}
-
+   <header>
+     <img src="/assets/logo.png" alt="foofdy">
+   </header>
 
    {% block content %} {% endblock content %}
 

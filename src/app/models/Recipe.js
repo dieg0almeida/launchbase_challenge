@@ -12,7 +12,6 @@ module.exports = {
         (
             title,
             chef_id,
-            image,
             ingredients,
             preparation,
             information
@@ -22,14 +21,12 @@ module.exports = {
             $2,
             $3,
             $4,
-            $5,
-            $6
+            $5
         ) RETURNING id`;
 
         const values = [
             recipe.title,
             recipe.chef_id,
-            recipe.image,
             recipe.ingredients,
             recipe.preparation,
             recipe.information
@@ -48,16 +45,14 @@ module.exports = {
         const query = `UPDATE recipes SET
         title = $1,
         chef_id = $2,
-        image = $3,
-        ingredients = $4,
-        preparation = $5,
-        information = $6
-        WHERE id = $7`;
+        ingredients = $3,
+        preparation = $4,
+        information = $5
+        WHERE id = $6`;
 
         const values = [
             recipe.title,
             recipe.chef_id,
-            recipe.image,
             recipe.ingredients,
             recipe.preparation,
             recipe.information,
@@ -76,5 +71,11 @@ module.exports = {
           ON (chefs.id = recipes.chef_id)
           WHERE recipes.title ILIKE '%${search}%'`
         );
+    },
+    files(id){
+        return db.query(
+        `SELECT * FROM recipe_files JOIN files 
+        ON recipe_files.file_id = files.id 
+        WHERE recipe_files.recipe_id = ${id}`);
     }
 }
