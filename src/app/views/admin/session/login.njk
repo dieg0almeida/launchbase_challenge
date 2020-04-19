@@ -3,24 +3,17 @@
 {% block content %}
 
 <section class='login container form'>
-  <form action="/user/login" method="post">
+  <form action="/login" method="post">
     <div class="header">
-      <h3>Entrar</h3>
+      <h3>Iniciar Sessão</h3>
     </div>
 
     <div class="fields">
-      {% include 'session/fields.njk' %}
+      {% include 'admin/session/fields.njk' %}
     </div>
-    <button class="button" type="submit">Entrar</button>
     <div class="footer">
-      <ul>
-            <li>
-              <a href="/user/register">Cadastre-se</a>
-            </li>
-            <li>
-              <a href="/user/forgot-password">Esqueci minha senha</a>
-            </li>
-      </ul>
+      <a href="/forgot-password">Perdeu a senha?</a>
+      <button class="button" type="submit">Acessar</button>
     </div>
   </form>
 </section>

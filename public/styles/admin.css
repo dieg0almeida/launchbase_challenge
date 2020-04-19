@@ -21,6 +21,8 @@ header {
 
 header .container-header{
     position: relative;
+    display: grid;
+    grid-template-columns: 200px 1fr 50px;
     width: 80%;
     height: 100%;
     margin: 32px auto;
@@ -99,6 +101,17 @@ header .container-header a.active{
     background-color: #DC4747;
 }
 
+.cancel-button{
+    background-color: #8a8a8a;
+    color: white;
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: 26px;
+    padding: 8px 16px;
+    text-align: center;
+    cursor: pointer;
+}
+
 .container-form form .header h1{
     font-size: 24px;
     line-height: 34px;
@@ -110,6 +123,30 @@ header .container-header a.active{
     line-height: 26px;
     font-weight: bold;
     margin-top: 24px;
+}
+
+.container-form .fields.users .inputs{
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-form .fields.users .inputs input{
+    width: 450px;
+}
+
+.container-form .fields.users .checkbox{
+    margin-top: 16px;
+}
+
+.container-form .fields.users .checkbox input{
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+}
+
+.container-form .fields.users .checkbox label{
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: bold;
 }
 
 .container-form .fields .item input,

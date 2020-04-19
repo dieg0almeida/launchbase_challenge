@@ -12,3 +12,76 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+header{
+    margin: 32px auto;
+}
+
+header img{
+    width: 94px;
+    height: 32px;
+}
+
+section{
+    margin: 64px auto;
+    text-align: center;
+}
+
+form .header h3{
+    font-size: 24px;
+    line-height: 34px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+section .fields{
+    position: relative;
+    text-align: start;
+}
+
+section .fields{
+    margin-top: 32px;
+    margin-bottom: 64px;
+}
+
+section .fields .item .input input{
+    width: 500px;
+    border: 1px solid #dddddd;
+    margin-bottom: 32px;
+    font-size: 14px;
+    line-height: 24px;
+    border-radius: 4px;
+    padding: 8px;
+}
+
+section .fields .item h3{
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 26px;
+    margin-bottom: 8px;
+}
+
+section .footer{
+    display: flex;
+    justify-content: space-between;
+}
+
+section .footer a{
+    text-decoration: none;
+    color: #969696;
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: bold;
+}
+
+section .footer .button,
+.button{
+    background-color: #6558c3;
+    color: white;
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: 26px;
+    padding: 8px 16px;
+    text-align: center;
+    cursor: pointer;
+}
