@@ -5,7 +5,7 @@ module.exports = {
         return db.query(
             `SELECT recipes.*, chefs.name AS chef_name 
             FROM recipes JOIN chefs 
-            ON (chefs.id = recipes.chef_id)`);
+            ON (chefs.id = recipes.chef_id) ORDER BY created_at DESC`);
     },
     create(recipe) {
         const query = `INSERT INTO recipes 
@@ -72,7 +72,7 @@ module.exports = {
           SELECT recipes.*, chefs.name AS chef_name 
           FROM recipes JOIN chefs
           ON (chefs.id = recipes.chef_id)
-          WHERE recipes.title ILIKE '%${search}%'`
+          WHERE recipes.title ILIKE '%${search}%' ORDER BY updated_at DESC`
         );
     },
     files(id){

@@ -12,9 +12,15 @@ module.exports = {
         next();
     },
     async  usersRecipe(req, res, next){
+        console.log(req.params.id);
         let results = await User.findById(req.session.userId);
         const user = results.rows[0];
-        results = await Recipe.findById(req.params.id);
+        if(req.params.id){
+            results = await Recipe.findById(req.params.id);
+        }else{
+            results = await Recipe.findById(req.body.id);
+        }
+        
         const recipe = results.rows[0];
 
         if(recipe.user_id != req.session.userId && !user.is_admin){

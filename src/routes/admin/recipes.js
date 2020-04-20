@@ -12,8 +12,8 @@ routes.get("/admin/recipes/create", onlyUsers, RecipeController.create);
 routes.get("/admin/recipes/:id", onlyUsers, RecipeController.show);
 routes.get("/admin/recipes/:id/edit", onlyUsers, usersRecipe, RecipeController.edit);
 
-routes.post("/admin/recipes", onlyUsers, usersRecipe, multer.array("photos", 5), RecipeController.post);
-routes.put("/admin/recipes", onlyUsers, usersRecipe, multer.array("photos", 5), RecipeController.put);
+routes.post("/admin/recipes", onlyUsers, multer.array("photos", 5), RecipeController.post);
+routes.put("/admin/recipes", onlyUsers, multer.array("photos", 5), usersRecipe, RecipeController.put);
 routes.delete("/admin/recipes", onlyUsers, usersRecipe, RecipeController.delete);
 
 module.exports = routes;
