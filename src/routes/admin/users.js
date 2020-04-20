@@ -2,6 +2,7 @@ const express = require('express');
 const routes = express.Router();
 const SessionController = require('../../app/controllers/SessionController');
 const UserController = require('../../app/controllers/UserController');
+const ProfileController = require('../../app/controllers/ProfileController');
 
 const SessionValidator = require('../../app/validators/session');
 
@@ -20,8 +21,8 @@ routes.post('/forgot-password', SessionValidator.forgot, SessionController.forgo
 routes.post('/password-reset', SessionValidator.reset, SessionController.reset);
 
 // // ROTAS USERS
-// routes.get('/admin/profile', ProfileController.index) // Mostrar o formulário com dados do usuário logado
-// routes.put('/admin/profile', ProfileController.put)// Editar o usuário logado
+routes.get('/admin/profile', ProfileController.index) // Mostrar o formulário com dados do usuário logado
+routes.put('/admin/profile', ProfileController.put)// Editar o usuário logado
 
 // // Rotas que o administrador irá acessar para gerenciar usuários
 routes.get('/admin/users', onlyUsers, isAdmin, UserController.list); //Mostrar a lista de usuários cadastrados

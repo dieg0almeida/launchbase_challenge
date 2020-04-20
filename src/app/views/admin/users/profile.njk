@@ -1,0 +1,16 @@
+{% extends 'admin/layout.njk' %}
+
+{% block content %}
+    <div class="container-form">
+        <div class="edit-form">
+            <h1>Bem vindo {{user.name}}</h1>
+            <form action="/admin/profile?_method=PUT" method="POST">
+                <input type="hidden" name="id" value="{{user.id}}">
+                <button type="submit" class="button edit-button">Salvar</button>
+                <div class="fields users">
+                    {% include 'admin/users/profile-fields.njk' %}
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

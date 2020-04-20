@@ -90,5 +90,24 @@ module.exports = {
     },
     destroy(user_id){
         return db.query(`DELETE FROM users WHERE id = ${user_id}`);
+    },
+    async updateProfile(user){
+        const query = `UPDATE users SET
+        name = $1,
+        email = $2,
+        password = $3
+        WHERE id = $4
+        `;
+
+        const passwordHash = await hash(user.password, 8);
+
+        const values = [
+            user.name,
+            user.email,
+            passwordHash,
+            user.id
+        ];
+
+        return db.query(query, values);
     }
 }

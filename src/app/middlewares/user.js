@@ -6,7 +6,7 @@ module.exports = {
         const results = await User.findById(req.session.userId);
         const user = results.rows[0];
         if(!user.is_admin){
-            return res.send('Você não é admin');
+            return res.render('admin/users/profile', { user, error: 'Apenas administradores pode acessar este recurso.' });
         }
 
         next();
