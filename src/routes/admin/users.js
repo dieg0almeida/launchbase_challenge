@@ -6,6 +6,7 @@ const UserController = require('../../app/controllers/UserController');
 const SessionValidator = require('../../app/validators/session');
 
 const { onlyUsers, isLoggedRedirectToRecipes } = require('../../app/middlewares/session');
+const { isAdmin, deleteUser } = require('../../app/middlewares/user');
 
 
 // ROTAS LOGIN - SESSION
@@ -23,10 +24,11 @@ routes.post('/password-reset', SessionValidator.reset, SessionController.reset);
 // routes.put('/admin/profile', ProfileController.put)// Editar o usuário logado
 
 // // Rotas que o administrador irá acessar para gerenciar usuários
-// routes.get('/admin/users', UserController.list) //Mostrar a lista de usuários cadastrados
-routes.get("/admin/users/create", UserController.create);
-routes.post('/admin/users', UserController.post) //Cadastrar um usuário
-// routes.put('/admin/users', UserController.put) // Editar um usuário
-// routes.delete('/admin/users', UserController.delete) // Deletar um usuário
+routes.get('/admin/users', onlyUsers, isAdmin, UserController.list); //Mostrar a lista de usuários cadastrados
+routes.get('/admin/users/create',  onlyUsers, isAdmin, UserController.create);
+routes.post('/admin/users', onlyUsers, isAdmin, UserController.post); //Cadastrar um usuário
+routes.get('/admin/users/:id/edit', onlyUsers, isAdmin, UserController.edit);
+routes.put('/admin/users', onlyUsers, isAdmin, UserController.put); // Editar um usuário
+routes.delete('/admin/users', onlyUsers, isAdmin, deleteUser, UserController.delete); // Deletar um usuário
 
 module.exports = routes;

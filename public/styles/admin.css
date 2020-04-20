@@ -484,3 +484,30 @@ form .item #photos-preview img {
 .avatar{
     margin-top: 24px;
 }
+
+.user__cards{
+    margin: 32px auto 32px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+}
+
+.user__card h3{
+    font-size: 18px;
+    line-height: 28px;
+}
+
+.user__card h4{
+    font-size: 14px;
+    line-height: 24px;
+    color: #777777;
+}
+
+.user__footer{
+    display: flex;
+    margin-top: 16px;
+}
+
+.user__footer a{
+    text-decoration: none;
+}

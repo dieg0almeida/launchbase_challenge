@@ -3,11 +3,27 @@
 {% block content %}
     <div class="container">
         <div class="header">
-            <h1>Gerenciar chefs</h1>
+            <h1>Usuários
+                {{recipe.title}}</h1>
+            <a href="/admin/users/create" class="button">Novo</a>
         </div>
-        <div class="chef__cards">
-            {% for chef in chefs %}
-                <div class="chef__card">
+        <div class="user__cards">
+            {% for user in users %}
+                <div class="user__card">
+                    <h3>{{user.name}}</h3>
+                    <h4>{{user.email}}</h4>
+                    <div class="user__footer">
+                        <a href="/admin/users/{{user.id}}/edit" style="color: #6558C3; font-weight: bold; font-size: 14px; line-height: 24px; cursor: pointer;">Editar</a>
+                        <form action="/admin/users?_method=DELETE" method="POST">
+                          <input type="hidden" name="id" value="{{user.id}}">
+                          <input type="hidden" name="is_admin" value="{{user.is_admin}}">
+                          <button type="submit" style="color: #ee4443; font-weight: bold; font-size: 14px; margin-left: 4px; background-color: transparent; line-height: 24px; cursor: pointer;">Remover</button>
+                        </form>
+                    </div>
+                </div>
+            {% endfor %}
+            {# {% for user in users %}
+                <div class="user__card">
                     <div class="chef__avatar">
                         <img src="{{chef.avatar}}" alt="{{chef.name}}">
                     </div>
@@ -18,7 +34,7 @@
                         </h6>
                     </div>
                 </div>
-                {% endfor%}
-            </div>
+                {% endfor%} #}
         </div>
-    {% endblock content %}
+    </div>
+{% endblock content %}

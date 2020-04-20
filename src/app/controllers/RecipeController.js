@@ -32,6 +32,8 @@ module.exports = {
             }
         }
 
+        req.body.user_id = req.session.userId;
+
         let results = await Recipe.create(req.body);
         const recipe_id = results.rows[0].id;
         const filesPromise = req.files.map(file => File.create(file));

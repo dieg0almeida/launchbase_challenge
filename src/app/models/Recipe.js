@@ -14,14 +14,16 @@ module.exports = {
             chef_id,
             ingredients,
             preparation,
-            information
+            information,
+            user_id
         ) VALUES
         (
             $1,
             $2,
             $3,
             $4,
-            $5
+            $5,
+            $6
         ) RETURNING id`;
 
         const values = [
@@ -29,7 +31,8 @@ module.exports = {
             recipe.chef_id,
             recipe.ingredients,
             recipe.preparation,
-            recipe.information
+            recipe.information,
+            recipe.user_id
         ];
 
         return db.query(query, values);

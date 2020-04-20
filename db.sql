@@ -5,6 +5,7 @@ CREATE TABLE "recipes" (
   id SERIAL PRIMARY KEY,
   title text,
   chef_id int,
+  user_id int,
   ingredients text[],
   preparation text [],
   information text,
@@ -78,3 +79,4 @@ FOR EACH ROW
 EXECUTE PROCEDURE trigger_set_timestamp();
 
 ALTER TABLE "recipes" ADD FOREIGN KEY ("chef_id") REFERENCES "chefs" ("id") ON DELETE CASCADE;
+ALTER TABLE "recipes" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id") ON DELETE CASCADE;

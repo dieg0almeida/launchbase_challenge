@@ -2,6 +2,9 @@ const db = require('../../config/db');
 const { hash } = require('bcryptjs');
 
 module.exports = {
+    all(){
+        return db.query('SELECT * FROM users');
+    },
     findOne(email) {
         const query = `SELECT * FROM users 
         WHERE email ILIKE '${email}'`;
@@ -31,37 +34,23 @@ module.exports = {
 
         return db.query(query, values);
     },
-    findLastInsert() {
-        return db.query('SELECT id FROM launchstore.users order by id desc limit 1');
-    },
     findById(id) {
         const query = `SELECT * FROM users 
         WHERE id = ${id}`;
 
         return db.query(query);
     },
-    findByEmail(email) {
-        const query = `SELECT * FROM users 
-        WHERE email LIKE '${email}'`;
-
-        return db.query(query);
-    },
     update(user) {
+        console.log(user);
         const query = `UPDATE users SET
-        name = ?,
-        email = ?,
-        cpf_cnpj = ?,
-        cep = ?,
-        address = ?
-        WHERE id = ?
+        name = $1,
+        email = $2
+        WHERE id = $3
         `;
 
         const values = [
             user.name,
             user.email,
-            user.cpf_cnpj,
-            user.cep,
-            user.address,
             user.id
         ];
 
@@ -98,5 +87,8 @@ module.exports = {
         ];
 
         return db.query(query, values);
+    },
+    destroy(user_id){
+        return db.query(`DELETE FROM users WHERE id = ${user_id}`);
     }
 }

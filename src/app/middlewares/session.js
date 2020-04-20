@@ -1,6 +1,6 @@
 function onlyUsers(req, res, next) {
     if(!req.session.userId){
-        return res.redirect('/user/login');
+        return res.redirect('/login');
     }
 
     next();
